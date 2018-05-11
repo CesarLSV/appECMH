@@ -15,6 +15,8 @@ namespace appECMH.Views
 		public LoginPage ()
 		{
 			InitializeComponent ();
+
+            //this.BackgroundImage = "bg2.png";
 		}
 	}
 }

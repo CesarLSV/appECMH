@@ -128,4 +128,19 @@
       <Name>appECMH</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Logo_monica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\solo_logo_monica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\splash_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\bg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\top_2.png" />
+  </ItemGroup>
 </Project>

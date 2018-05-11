@@ -1,22 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿
 
-using Xamarin.Forms;
+
 
 namespace appECMH
 {
-	public partial class App : Application
+    using Views;
+    using Xamarin.Forms;
+
+    public partial class App : Application
 	{
-		public App ()
+
+
+        #region Constructors
+
+        
+        public App ()
 		{
 			InitializeComponent();
 
-			MainPage = new appECMH.MainPage();
+			MainPage = new NavigationPage(new LoginPage());
 		}
 
-		protected override void OnStart ()
+        #endregion
+
+
+
+        #region Methods
+
+        
+        protected override void OnStart ()
 		{
 			// Handle when your app starts
 		}
@@ -30,5 +42,8 @@ namespace appECMH
 		{
 			// Handle when your app resumes
 		}
-	}
+
+        #endregion
+
+    }
 }
