@@ -129,6 +129,7 @@
                 var url = string.Format("{0}{1}", servicePrefix, controller);
                 var response = await client.GetAsync(url);
                 var result = await response.Content.ReadAsStringAsync();
+                //CesarL
                 string s = result.Replace(@"\", string.Empty);
 
                 // after this   string is 

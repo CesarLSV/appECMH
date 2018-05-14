@@ -34,13 +34,13 @@
         public string Carrera { get; set; }
 
         [JsonProperty("PrimerParcial")]
-        public object PrimerParcial { get; set; }
+        public double? PrimerParcial { get; set; }
 
         [JsonProperty("SegundoParcial")]
-        public object SegundoParcial { get; set; }
+        public double? SegundoParcial { get; set; }
 
         [JsonProperty("EvaluacionFinal")]
-        public object EvaluacionFinal { get; set; }
+        public double? EvaluacionFinal { get; set; }
 
     }
 }

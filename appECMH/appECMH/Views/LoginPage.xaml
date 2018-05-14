@@ -61,7 +61,7 @@
                         IsPassword="True"
                         Placeholder="Ingrese su clave"
                         Text="{Binding Clave, Mode=TwoWay}"
-                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
                     </Entry>
 
                 </Grid>

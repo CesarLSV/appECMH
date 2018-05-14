@@ -82,8 +82,8 @@ namespace appECMH.ViewModels
         public LoginViewModel()
         {
             this.IsRemembered = true;
-            this.Usuario = "erika.melgar";
-            this.Clave = "Quna1629";
+            this.Usuario = "adriana.diaz";
+            this.Clave = "Qumu0378";
             this.IsEnabled = true;
 
         }
@@ -131,7 +131,7 @@ namespace appECMH.ViewModels
             }
 
 
-            if (this.Usuario != "erika.melgar" || this.Clave != "Quna1629")
+            if (this.Usuario != "adriana.diaz" || this.Clave != "Qumu0378")
             {
                 this.isRunning = false;
                 this.isEnabled = true;

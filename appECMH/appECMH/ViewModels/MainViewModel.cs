@@ -15,6 +15,12 @@
             get;
             set;
         }
+
+        public NotasViewModel Notas
+        {
+            get;
+            set;
+        }
         #endregion
 
 

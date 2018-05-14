@@ -11,6 +11,8 @@
             Padding="5">
             <Button
                 BackgroundColor="Navy"
+                 Command="{Binding NotasCommand}"
+                 IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                 Text="Ver mis Notas">
                 
             </Button>

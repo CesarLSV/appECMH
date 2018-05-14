@@ -1,78 +1,37 @@
-﻿namespace appECMH.ViewModels
+﻿
+namespace appECMH.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Collections.ObjectModel;
-    using Models;
-    using Services;
+    using GalaSoft.MvvmLight.Command;
+    using System.Windows.Input;
     using Xamarin.Forms;
+    using Views;
+    using ViewModels;
 
     class AlumnoViewModel :BaseViewModel
      {
 
-        #region Services
-        private ApiService apiService;
-        #endregion
+        #region Command
 
-
-        #region Attributes
-        private ObservableCollection<Notas> notasx;
-
-        #endregion
-
-
-        #region Properties
-        public ObservableCollection<Notas> Notasx
+        public ICommand NotasCommand
         {
-            get { return this.notasx; }
-            set { SetValue(ref this.notasx, value); }
-        }
-        #endregion
-
-        #region Constructors
-        public AlumnoViewModel()
-        {
-            this.apiService = new ApiService();
-            this.LoadNotas();
-
-        }
-
-        #endregion
-
-        #region Methods
-        private async void LoadNotas()
-        {
-
-            var conection = await this.apiService.CheckConnection();
-
-            if (!conection.IsSuccess)
+            get
             {
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    conection.Message,
-                    "Accept");
-                await Application.Current.MainPage.Navigation.PopAsync();
-                return;
+                return new RelayCommand(Notas);
+
             }
 
-            var response = await this.apiService.GetList<Notas>(
-                "https://sigecmh.monicaherrera.edu.sv/apiECMH/",
-                "api/data",
-                "/horarios");
-
-            if (!response.IsSuccess)
-            {
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error", 
-                    response.Message, 
-                    "Accept");
-                await Application.Current.MainPage.Navigation.PopAsync();
-                return;
-            }
-
-            var milista = (List<Notas>)response.Result;
-            this.Notasx = new ObservableCollection<Notas>(notasx);
         }
+
+        private async void Notas()
+        {
+           
+            MainViewModel.GetInstance().Notas = new NotasViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new NotasPage());
+
+
+        }
+
+
         #endregion
     }
 }
