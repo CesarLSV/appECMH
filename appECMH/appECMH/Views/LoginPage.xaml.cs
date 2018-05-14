@@ -17,6 +17,8 @@ namespace appECMH.Views
 			InitializeComponent ();
 
             //this.BackgroundImage = "bg2.png";
+          
+
 		}
 	}
 }
