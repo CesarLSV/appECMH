@@ -6,7 +6,7 @@ namespace appECMH.ViewModels
     using System.ComponentModel;
     using System.Windows.Input;
     using Xamarin.Forms;
-
+    using Views;
 
     //class LoginViewModel: INotifyPropertyChanged
     class LoginViewModel : BaseViewModel
@@ -20,8 +20,10 @@ namespace appECMH.ViewModels
 
         #region Attributes
         private string clave;
+        private string usuario;
         private bool isRunning;
         private bool isEnabled;
+        
 
         #endregion
 
@@ -29,8 +31,8 @@ namespace appECMH.ViewModels
 
         public string Usuario
         {
-            get;
-            set;
+            get { return this.usuario; }
+            set { SetValue(ref this.usuario, value); }
         }
 
         public string Clave
@@ -145,11 +147,19 @@ namespace appECMH.ViewModels
             this.isEnabled = true;
 
 
-            await Application.Current.MainPage.DisplayAlert(
-                    "OK",
-                    "Login Correcto.",
-                    "Accept");
-            return;
+            //await Application.Current.MainPage.DisplayAlert(
+            //        "OK",
+            //        "Login Correcto.",
+            //        "Accept");
+            //return;s
+
+            this.Usuario = string.Empty;
+            this.Clave = string.Empty;
+
+            MainViewModel.GetInstance().Alumno = new AlumnoViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new AlumnoPage());
+
+
         }
 
 
