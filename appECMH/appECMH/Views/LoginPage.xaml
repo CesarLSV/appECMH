@@ -86,7 +86,7 @@
                 <StackLayout
                     Margin="20,0">
                     <Button
-                        BackgroundColor="#0567af"
+                        BackgroundColor="#ec2629"
                         Command="{Binding LoginCommand}"
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="Ingresar"
@@ -96,7 +96,7 @@
 
 
                     <Button
-                        BackgroundColor="#ec2629"
+                        BackgroundColor="#0567af"
                         Command="{Binding AdmisionesCommand}"
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="Admisiones"

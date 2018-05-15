@@ -3,6 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
+    using System.Windows.Input;
+    using GalaSoft.MvvmLight.Command;
     using Models;
     using Services;
     using Xamarin.Forms;
@@ -17,7 +20,9 @@
 
         #region Attributes
         private ObservableCollection<Notas> notas;
-
+        private bool isRefreshing;
+        private string filter;
+        private List<Notas> NotasLista;
         #endregion
 
 
@@ -26,6 +31,23 @@
         {
             get { return this.notas; }
             set { SetValue(ref this.notas, value); }
+        }
+
+        public bool IsRefreshing
+        {
+            get { return this.isRefreshing; }
+            set { SetValue(ref this.isRefreshing, value); }
+        }
+
+
+        public string Filter
+        {
+            get { return this.filter; }
+            set {
+
+                SetValue(ref this.filter, value);
+                this.Search();
+                  }
         }
         #endregion
 
@@ -42,11 +64,12 @@
         #region Methods
         private async void LoadNotas()
         {
-
+            this.IsRefreshing = true;
             var conection = await this.apiService.CheckConnection();
 
             if (!conection.IsSuccess)
             {
+                this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     conection.Message,
@@ -62,6 +85,7 @@
 
             if (!response.IsSuccess)
             {
+                this.IsRefreshing = false;
                 await Application.Current.MainPage.DisplayAlert(
                     "Error",
                     response.Message,
@@ -70,10 +94,48 @@
                 return;
             }
 
-            var milista = (List<Notas>)response.Result;
-            this.Notas = new ObservableCollection<Notas>(milista);
+            this.NotasLista = (List<Notas>)response.Result;
+            this.Notas = new ObservableCollection<Notas>(this.NotasLista);
+            this.IsRefreshing = false;
         }
         #endregion
 
+
+        #region Commands
+        public ICommand RefreshCommand
+        {
+            get
+            {
+                return new RelayCommand(LoadNotas);
+
+            }
+        
+        }
+
+        public ICommand SearchCommand
+        {
+            get
+            {
+                return new RelayCommand(Search);
+            }
+        }
+
+        private void Search()
+        {
+           if (string.IsNullOrEmpty(this.Filter))
+            {
+                this.Notas = new ObservableCollection<Notas>(this.NotasLista);
+            }
+            else
+            {
+                this.Notas = new ObservableCollection<Notas>(
+                    this.NotasLista.Where(n => n.EventLongName.ToLower().Contains(this.filter.ToLower()) ||
+                                               n.Section.ToLower().Contains(this.filter.ToLower())));
+            }
+        }
+
+
+
+        #endregion
     }
 }

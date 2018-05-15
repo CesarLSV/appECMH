@@ -149,4 +149,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\top_2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_chevron_right.png" />
+  </ItemGroup>
 </Project>

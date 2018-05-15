@@ -8,10 +8,15 @@
     <ContentPage.Content>
         <StackLayout
             BindingContext="{Binding Notas}"
-            Padding="5">
-           
+            Padding="1">
+            <SearchBar
+                Text="{Binding Filter, Mode=TwoWay}"
+                Placeholder="Search..."
+                SearchCommand="{Binding SearchCommand}">
+                
+            </SearchBar>
             <ListView 
-                BackgroundColor="Silver"
+                BackgroundColor="#0567af"
                 HasUnevenRows="true" 
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
@@ -22,7 +27,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <Frame
-                                CornerRadius="20"
+                                CornerRadius="10"
                                 HasShadow="true"
                                 Margin="5">
                                 <Frame.GestureRecognizers>
