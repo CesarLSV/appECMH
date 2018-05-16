@@ -155,4 +155,25 @@
   <ItemGroup>
     <BundleResource Include="Resources\top_2.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_29_29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_40_40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_58_58.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_76_76.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_80_80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_120_120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\logo_152_152.png" />
+  </ItemGroup>
 </Project>
