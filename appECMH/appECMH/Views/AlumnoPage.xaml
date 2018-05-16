@@ -27,7 +27,7 @@
 
               
                <StackLayout
-                    Margin="20,0">
+                    Margin="20,5">
 
                     <Button
                         BackgroundColor="#0e94f6"
