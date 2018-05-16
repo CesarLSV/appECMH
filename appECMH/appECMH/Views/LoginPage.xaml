@@ -2,14 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="appECMH.Views.LoginPage"
-             Title="Inicio"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
-             BackgroundColor="White">
+             BackgroundColor="White"
+             Title="Inicio">
     <ContentPage.Content>
         <ScrollView
             BindingContext="{Binding Login}">
             <StackLayout
-            Padding="10,10,10,5">
+            Padding="10,10,10,5"
+                BackgroundColor="#065190">
                 <!--<Label
                 FontAttributes="Bold"
                 FontSize="Large"
@@ -34,12 +35,13 @@
                     <Label
                         Grid.Row="0"
                         Grid.Column="0"
-                        TextColor="Black"
+                        TextColor="#e2f1fb"
                         Text="Usuario: "
                         VerticalOptions="Center">
                     </Label>
 
                     <Entry
+                        BackgroundColor="White"
                         Grid.Row="0"
                         Grid.Column="1"
                         Keyboard="Email"
@@ -50,12 +52,13 @@
                     <Label
                         Grid.Row="1"
                         Grid.Column="0"
-                        TextColor="Black"
+                        TextColor="#e2f1fb"
                         Text="Clave: "
                         VerticalOptions="Center">
                     </Label>
 
                     <Entry
+                        BackgroundColor="White"
                         Grid.Row="1"
                         Grid.Column="1"
                         IsPassword="True"
@@ -75,6 +78,7 @@
 
                     <Label
                         HorizontalOptions="StartAndExpand"
+                        TextColor="#e2f1fb"
                         Text="Recordarme en este dispositivo"
                         VerticalOptions="Center"/>
                     <Switch
@@ -85,22 +89,24 @@
                 
                 <StackLayout
                     Margin="20,0">
+
+                                       
                     <Button
-                        BackgroundColor="#ec2629"
+                        BackgroundColor="#0e94f6"
                         Command="{Binding LoginCommand}"
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="Ingresar"
-                        TextColor="White" >
+                         TextColor="#e2f1fb" >
 
                     </Button>
 
 
                     <Button
-                        BackgroundColor="#0567af"
+                        BackgroundColor="#ec2629"
                         Command="{Binding AdmisionesCommand}"
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="Admisiones"
-                        TextColor="White">
+                         TextColor="#e2f1fb">
 
                     </Button>
 
@@ -115,11 +121,11 @@
                 <StackLayout
                 VerticalOptions="EndAndExpand">
 
-                    <Label
+                    <!--<Label
                     Text="visitanos: www.monicaherrera.edu.sv"
-                    TextColor="Blue" 
+                    TextColor="AntiqueWhite"
                     HorizontalOptions="Center">
-                    </Label>
+                    </Label>-->
 
                 </StackLayout>
             </StackLayout>

@@ -1,8 +1,12 @@
 ﻿namespace appECMH.Models
 {
-    using System.Collections.Generic;
+    using appECMH.ViewModels;
+    using GalaSoft.MvvmLight.Command;
     using Newtonsoft.Json;
-
+    using System.Windows.Input;
+    using Views;
+    using Xamarin.Forms;
+    
 
     public class Notas
     {
@@ -41,6 +45,27 @@
 
         [JsonProperty("EvaluacionFinal")]
         public double? EvaluacionFinal { get; set; }
+
+        #region Command
+
+        public ICommand SelectLandCommand
+        {
+            get
+            {
+                return new RelayCommand(SelectMateria);
+            }
+        
+        }
+
+        private async void SelectMateria()
+        {
+
+            MainViewModel.GetInstance().DetalleMateria = new DetalleMateriaViewModel(this);
+            await Application.Current.MainPage.Navigation.PushAsync(new DetalleMateriaPage());
+        }
+
+        #endregion
+
 
     }
 }

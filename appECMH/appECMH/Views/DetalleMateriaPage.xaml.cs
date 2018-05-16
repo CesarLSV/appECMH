@@ -10,15 +10,11 @@ using Xamarin.Forms.Xaml;
 namespace appECMH.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class LoginPage : ContentPage
+	public partial class DetalleMateriaPage : ContentPage
 	{
-		public LoginPage ()
+		public DetalleMateriaPage ()
 		{
 			InitializeComponent ();
-
-           // this.BackgroundImage = "bg2.png";
-          
-
 		}
 	}
 }

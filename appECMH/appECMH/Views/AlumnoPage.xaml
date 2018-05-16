@@ -6,23 +6,62 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Mónico">
     <ContentPage.Content>
-        <StackLayout
-            BindingContext="{Binding Alumno}"
-            Padding="5">
-            <Button
-                BackgroundColor="Navy"
-                 Command="{Binding NotasCommand}"
-                 IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
-                Text="Ver mis Notas">
+
+        <ScrollView
+            BindingContext="{Binding Alumno}">
+            <StackLayout
+            Padding="10,10,10,5"
+                BackgroundColor="#065190">
+                <!--<Label
+                FontAttributes="Bold"
+                FontSize="Large"
+                HorizontalOptions="Center"
+                Text="Ingreso de alumnos">
                 
-            </Button>
+            </Label>-->
+                <Image
+                Source="top_2.png"
+                WidthRequest="200">
 
-            <Button
-                BackgroundColor="Green"
-                Text="Mis Horarios">
+                </Image>
 
-            </Button>
-            
-        </StackLayout>
+              
+               <StackLayout
+                    Margin="20,0">
+
+                    <Button
+                        BackgroundColor="#0e94f6"
+                        Command="{Binding NotasCommand}"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
+                        TextColor="White"
+                        Text="Mis Notas">
+
+                    </Button>
+
+                    <Button
+                        BackgroundColor="#55b748"
+                        TextColor="White"
+                        Text="Mis Horarios">    
+
+                    </Button>
+
+
+                    <Button
+                        BackgroundColor="#ec2629"
+                        TextColor="White"
+                        Text="Biblioteca">
+
+                    </Button>
+
+
+
+                </StackLayout>
+                </StackLayout>
+        </ScrollView>
+        
+        
+        
+           
+   
     </ContentPage.Content>
 </ContentPage>

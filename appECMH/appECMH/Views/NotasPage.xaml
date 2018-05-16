@@ -27,80 +27,88 @@
                     <DataTemplate>
                         <ViewCell>
                             <Frame
-                                CornerRadius="10"
+                                CornerRadius="5"
                                 HasShadow="true"
                                 Margin="5">
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding SelectLandCommand}"/>
                                 </Frame.GestureRecognizers>
+                                
                                 <Grid>
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
+                                      
+                                       <ColumnDefinition Width="4*"/>
+                                       <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <StackLayout 
-                                        Grid.Column="1"
-                                        VerticalOptions="Center">
+                                  
+                                  
                                         <Label 
+                                            Grid.Row="0"
                                             FontAttributes="Bold"
                                             FontSize="Medium" 
                                             Text="{Binding EventLongName}"
                                             TextColor="Black">
                                         </Label>
                                         
-                                        <StackLayout
-                                            Margin="5"
-                                            Orientation="Horizontal">
-                                            <Label 
+                                      <Label 
+                                            Grid.Row="1"
+                                            Grid.Column="0"
                                             Text="Primer Parcial:"
                                             TextColor="Black">
-                                            </Label>
+                                       </Label>
 
-                                            <Label 
-                                            Text="{Binding PrimerParcial}"
-                                            TextColor="Black">
-                                            </Label>
-                                                                                        
-                                        </StackLayout>
+                                       <Label 
+                                           FontAttributes="Bold"
+                                           Grid.Row="1" 
+                                           Grid.Column="1"
+                                           Text="{Binding PrimerParcial}"
+                                           TextColor="Black">
+                                       </Label>
 
-                                        <StackLayout
-                                            Margin="5"
-                                            Orientation="Horizontal">
-                                            <Label 
+
+
+                                        <Label 
+                                            Grid.Row="2"    
+                                            Grid.Column="0"
                                             Text="Segundo Parcial:"
                                             TextColor="Black">
-                                            </Label>
+                                        </Label>
 
-                                            <Label 
+                                        <Label 
+                                            FontAttributes="Bold"
+                                            Grid.Row="2"   
+                                            Grid.Column="1"
                                             Text="{Binding SegundoParcial}"
                                             TextColor="Black">
-                                            </Label>
-
-                                        </StackLayout>
+                                        </Label>
 
 
 
-                                        <StackLayout
-                                            Margin="5"
-                                            Orientation="Horizontal">
-                                            <Label 
+
+
+
+                                        <Label 
+                                            Grid.Row="3"   
+                                            Grid.Column="0"
                                             Text="Evaluación Final:"
                                             TextColor="Black">
-                                            </Label>
+                                        </Label>
 
-                                            <Label 
+                                        <Label 
+                                            FontAttributes="Bold"
+                                            Grid.Row="3"   
+                                            Grid.Column="1"
                                             Text="{Binding EvaluacionFinal}"
                                             TextColor="Black">
-                                            </Label>
+                                        </Label>
 
-                                        </StackLayout>
+                                        
 
 
                                        
-                                    </StackLayout>
+                                  
                                     <Image 
-                                        Grid.Column="2"
+                                        Grid.Column="3"
                                         HorizontalOptions="End" 
                                         Source="ic_chevron_right">
                                     </Image>

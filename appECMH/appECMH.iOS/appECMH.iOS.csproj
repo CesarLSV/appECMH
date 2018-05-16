@@ -119,6 +119,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MvvmLightLibs">
+      <Version>5.4.1</Version>
+    </PackageReference>
     <PackageReference Include="Newtonsoft.Json">
       <Version>10.0.3</Version>
     </PackageReference>
@@ -147,9 +150,9 @@
     <BundleResource Include="Resources\bg2.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\top_2.png" />
+    <BundleResource Include="Resources\ic_chevron_right.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ic_chevron_right.png" />
+    <BundleResource Include="Resources\top_2.png" />
   </ItemGroup>
 </Project>

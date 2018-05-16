@@ -1,6 +1,7 @@
 ﻿namespace appECMH.ViewModels
 {
-    
+    using Models;
+
     class MainViewModel
     {
         #region ViewModels
@@ -17,6 +18,12 @@
         }
 
         public NotasViewModel Notas
+        {
+            get;
+            set;
+        }
+
+        public DetalleMateriaViewModel DetalleMateria
         {
             get;
             set;

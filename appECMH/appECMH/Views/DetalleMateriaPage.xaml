@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="appECMH.Views.DetalleMateriaPage"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             BackgroundColor="White"
+             Title="Detalle materia">
+    
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout
+                BackgroundColor="#065190"
+                BindingContext="{Binding DetalleMateria}"
+                Padding="5">
+                <Label
+                   FontSize="Large"
+                    FontAttributes="Bold"
+                    Text="{Binding NotasLista.EventLongName}"
+                     TextColor="#e2f1fb">
+                    
+                </Label>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Sección"
+                        TextColor="#e2f1fb">
+                    </Label>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="1"
+                        FontAttributes="Bold"
+                        Text="{Binding NotasLista.Section}"
+                        TextColor="#e2f1fb">
+                    </Label>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Ciclo"
+                        TextColor="#e2f1fb">
+                    </Label>
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontAttributes="Bold"
+                        Text="{Binding NotasLista.AcademicTerm}"
+                        TextColor="#e2f1fb">
+                    </Label>
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Text="Código Materia"
+                        TextColor="AntiqueWhite">
+                    </Label>
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        FontAttributes="Bold"
+                        Text="{Binding NotasLista.EventID}"
+                       TextColor="#e2f1fb">
+                    </Label>
+
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+        
+    </ContentPage.Content>
+</ContentPage>
