@@ -28,6 +28,13 @@
             get;
             set;
         }
+
+        public BibliotecaViewModel Biblioteca
+        {
+            get;
+            set;
+        }
+
         #endregion
 
 

@@ -48,6 +48,8 @@
 
                     <Button
                         BackgroundColor="#ec2629"
+                        Command="{Binding BibliotecaCommand}"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         TextColor="White"
                         Text="Biblioteca">
 

@@ -6,6 +6,7 @@ namespace appECMH.ViewModels
     using Xamarin.Forms;
     using Views;
     using ViewModels;
+    using System;
 
     class AlumnoViewModel :BaseViewModel
      {
@@ -31,6 +32,23 @@ namespace appECMH.ViewModels
 
         }
 
+
+        public ICommand BibliotecaCommand
+        {
+            get
+            {
+
+                return new RelayCommand(Biblioteca);
+
+             }
+            
+        }
+
+        private async void Biblioteca()
+        {
+            MainViewModel.GetInstance().Biblioteca = new BibliotecaViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new BibliotecaPage());
+        }
 
         #endregion
     }
