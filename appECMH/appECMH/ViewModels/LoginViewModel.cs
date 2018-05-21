@@ -95,7 +95,7 @@ namespace appECMH.ViewModels
            // this.IsRunning = true;
             
              this.Usuario = "adriana.diaz";
-            this.Clave = "Qumu0378";
+             this.Clave = "Qumu0378";
             
 
         }

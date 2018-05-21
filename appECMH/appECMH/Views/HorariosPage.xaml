@@ -8,9 +8,93 @@
     <ContentPage.Content>
         <StackLayout
              BindingContext="{Binding Horarios}">
-            <Label Text="Aqui los horarios del alumno"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <SearchBar
+                HeightRequest="46"
+                Text="{Binding Filter, Mode=TwoWay}"
+                Placeholder="Search..."
+                SearchCommand="{Binding SearchCommand}">
+
+            </SearchBar>
+            
+            <ListView 
+                BackgroundColor="#0567af"
+                HasUnevenRows="true" 
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding HorariosAlumno}"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                CornerRadius="5"
+                                HasShadow="true"
+                                Margin="5">
+                               
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+
+                                    <Label 
+                                            Grid.Row="0"
+                                            FontAttributes="Bold"
+                                            FontSize="Medium" 
+                                            Text="{Binding EventLongName}"
+                                            TextColor="Black">
+                                    </Label>
+
+                                    <Label 
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            FontSize="Medium" 
+                                            Text="Sección "
+                                            TextColor="Black">
+                                    </Label>
+
+
+                                    <Label 
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            FontAttributes="Bold"
+                                            FontSize="Medium" 
+                                            Text="{Binding Section}"
+                                            TextColor="Black">
+                                    </Label>
+
+                                    <Label 
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            FontSize="Medium" 
+                                            Text="Sección "
+                                            TextColor="Black">
+                                    </Label>
+
+                                    
+                                    <Label 
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            FontAttributes="Bold"
+                                            FontSize="Medium" 
+                                            Text="{Binding Section}"
+                                            TextColor="Black">
+                                    </Label>
+
+                                    
+
+                                </Grid>
+
+
+
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -80,7 +80,7 @@
             var response = await this.apiService.GetList<Notas>(
                 "https://sigecmh.monicaherrera.edu.sv/apiECMH/",
                 "api/data",
-                "/horarios",
+                "/notas",
                 "bearer",
                 MainViewModel.GetInstance().Token.AccessToken);
 

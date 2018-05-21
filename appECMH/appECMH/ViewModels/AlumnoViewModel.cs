@@ -24,6 +24,9 @@ namespace appECMH.ViewModels
         
         private ObservableCollection<LoggedUser> loggedUser;
         private List<LoggedUser> ListaLoggedUser;
+
+        private bool isRunning;
+        private bool isEnabled;
         #endregion
 
         #region Properties
@@ -34,9 +37,92 @@ namespace appECMH.ViewModels
         }
 
 
+
+        public bool IsRunning
+        {
+            get { return this.isRunning; }
+            set { SetValue(ref this.isRunning, value); }
+        }
+
+      public bool IsEnabled
+        {
+            get { return this.isEnabled; }
+            set { SetValue(ref this.isEnabled, value); }
+        }
+
+
         #endregion
 
 
+
+        
+
+        #region Constructors
+        public AlumnoViewModel()
+        {
+            this.apiService = new ApiService();
+            this.LoadUserLogged();
+            this.IsEnabled = true;
+
+        }
+
+
+
+        #endregion
+
+        
+        #region Methods
+        private async void LoadUserLogged()
+        {
+            this.IsRunning = true;
+            this.IsEnabled = false;
+            // this.IsRefreshing = true;
+            var conection = await this.apiService.CheckConnection();
+
+            if (!conection.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                //this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    conection.Message,
+                    "Accept");
+                await Application.Current.MainPage.Navigation.PopAsync();
+                return;
+            }
+
+            var response = await this.apiService.GetList<LoggedUser>(
+                "https://sigecmh.monicaherrera.edu.sv/apiECMH/",
+                "api/data",
+                "/authenticate",
+                "bearer",
+                MainViewModel.GetInstance().Token.AccessToken);
+
+            if (!response.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                //this.IsRefreshing = false;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    response.Message,
+                    "Accept");
+                await Application.Current.MainPage.Navigation.PopAsync();
+                return;
+            }
+
+            this.ListaLoggedUser = (List<LoggedUser>)response.Result;
+            this.LoggedUser = new ObservableCollection<LoggedUser>(this.ListaLoggedUser);
+            //this.IsRefreshing = false;
+
+            //this.Notas = new ObservableCollection<Notas>(this.NotasLista);
+            //this.IsRefreshing = false;
+
+            this.IsRunning = false;
+            this.IsEnabled = true;
+        }
+        #endregion
 
         #region Command
 
@@ -52,7 +138,7 @@ namespace appECMH.ViewModels
 
         private async void Notas()
         {
-           
+
             MainViewModel.GetInstance().Notas = new NotasViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new NotasPage());
 
@@ -67,8 +153,8 @@ namespace appECMH.ViewModels
 
                 return new RelayCommand(Biblioteca);
 
-             }
-            
+            }
+
         }
 
         private async void Biblioteca()
@@ -98,62 +184,6 @@ namespace appECMH.ViewModels
 
         #endregion
 
-
-        #region Constructors
-        public AlumnoViewModel()
-        {
-            this.apiService = new ApiService();
-            this.LoadUserLogged();
-
-        }
-
-        #endregion
-
-
-
-        #region Methods
-        private async void LoadUserLogged()
-        {
-           // this.IsRefreshing = true;
-            var conection = await this.apiService.CheckConnection();
-
-            if (!conection.IsSuccess)
-            {
-                //this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    conection.Message,
-                    "Accept");
-                await Application.Current.MainPage.Navigation.PopAsync();
-                return;
-            }
-
-            var response = await this.apiService.GetList<LoggedUser>(
-                "https://sigecmh.monicaherrera.edu.sv/apiECMH/",
-                "api/data",
-                "/authenticate",
-                "bearer",
-                MainViewModel.GetInstance().Token.AccessToken);
-
-            if (!response.IsSuccess)
-            {
-                //this.IsRefreshing = false;
-                await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    response.Message,
-                    "Accept");
-                await Application.Current.MainPage.Navigation.PopAsync();
-                return;
-            }
-
-            this.ListaLoggedUser = (List<LoggedUser>)response.Result;
-            this.LoggedUser = new ObservableCollection<LoggedUser>(this.ListaLoggedUser);
-            //this.IsRefreshing = false;
-
-            //this.Notas = new ObservableCollection<Notas>(this.NotasLista);
-            //this.IsRefreshing = false;
-        }
-        #endregion
 
 
     }

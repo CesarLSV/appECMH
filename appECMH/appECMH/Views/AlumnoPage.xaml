@@ -28,6 +28,11 @@
                     TextColor="#e2f1fb">
 
                 </Label>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                    VerticalOptions="CenterAndExpand">
+
+                </ActivityIndicator>
                 
                 <ListView 
                 BackgroundColor="#0567af"
