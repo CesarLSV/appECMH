@@ -7,10 +7,10 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              Title="Mónico">
     <ContentPage.Content>
-
-        <StackLayout
-            BackgroundColor="#4f6e88"
+        <ScrollView
             BindingContext="{Binding Alumno}">
+        <StackLayout
+            BackgroundColor="#4f6e88">
             <StackLayout
                Padding="5"
                BackgroundColor="#4f6e88">
@@ -88,8 +88,9 @@
                 </ListView.ItemTemplate>
             </ListView>
                 <StackLayout 
-                     BackgroundColor="#4f6e88"
-                     VerticalOptions="EndAndExpand">
+                    BackgroundColor="#4f6e88"
+                    VerticalOptions="EndAndExpand"
+                    Padding="10,5,5,20">
 
                     <Label
                         Grid.Row="0"
@@ -133,7 +134,7 @@
 
             </StackLayout>
         </StackLayout>
-        
+        </ScrollView>
         
         
            

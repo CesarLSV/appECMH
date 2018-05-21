@@ -46,6 +46,9 @@
         [JsonProperty("EvaluacionFinal")]
         public double? EvaluacionFinal { get; set; }
 
+        [JsonProperty("Promedio")]
+        public double? Promedio { get; set; }
+
         #region Command
 
         public ICommand SelectLandCommand

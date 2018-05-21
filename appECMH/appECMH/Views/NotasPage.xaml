@@ -41,10 +41,17 @@
                                       
                                        <ColumnDefinition Width="4*"/>
                                        <ColumnDefinition Width="*"/>
+                                        
                                     </Grid.ColumnDefinitions>
-                                  
-                                  
-                                        <Label 
+
+                                    <Grid.RowDefinitions>
+
+                                        <RowDefinition Height="Auto"/>
+                                      
+                                    </Grid.RowDefinitions>
+
+
+                                    <Label 
                                             Grid.Row="0"
                                             FontAttributes="Bold"
                                             FontSize="Medium" 
@@ -55,7 +62,7 @@
                                       <Label 
                                             Grid.Row="1"
                                             Grid.Column="0"
-                                            Text="Primer Parcial:"
+                                            Text="Primer Parcial "
                                             TextColor="Black">
                                        </Label>
 
@@ -72,7 +79,7 @@
                                         <Label 
                                             Grid.Row="2"    
                                             Grid.Column="0"
-                                            Text="Segundo Parcial:"
+                                            Text="Segundo Parcial "
                                             TextColor="Black">
                                         </Label>
 
@@ -92,7 +99,7 @@
                                         <Label 
                                             Grid.Row="3"   
                                             Grid.Column="0"
-                                            Text="Evaluación Final:"
+                                            Text="Evaluación Final "
                                             TextColor="Black">
                                         </Label>
 
@@ -104,13 +111,28 @@
                                             TextColor="Black">
                                         </Label>
 
-                                        
+
+                                    <Label 
+                                            Grid.Row="4"   
+                                            Grid.Column="0"
+                                            Text="Promedio "
+                                            TextColor="Black">
+                                    </Label>
+
+                                    <Label 
+                                            FontAttributes="Bold"
+                                            Grid.Row="4"   
+                                            Grid.Column="1"
+                                            Text="{Binding Promedio}"
+                                            TextColor="Black">
+                                    </Label>
 
 
-                                       <Image 
+
+
+                                    <Image 
                                         Grid.Row="0"
                                         Grid.Column="2"
-                                        VerticalOptions="Center"
                                         HorizontalOptions="End"
                                         Source="ic_chevron_right">
                                     </Image>

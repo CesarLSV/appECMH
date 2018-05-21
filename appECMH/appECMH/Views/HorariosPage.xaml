@@ -60,21 +60,19 @@
 
                                    
                                     <Label 
-                                            Grid.Row="1"
-                                            FontAttributes="Bold"
-                                            FontSize="Medium" 
-                                            Text="{Binding Section2}"
-                                            TextColor="Black">
+                                        Grid.Row="1"
+                                        FontSize="Medium" 
+                                        Text="{Binding Section2}"
+                                        TextColor="Black">
                                        
                                     </Label>
 
-                                                                        
+
                                     <Label 
-                                            Grid.Row="2"
-                                            FontAttributes="Bold"
-                                            FontSize="Medium" 
-                                            Text="{Binding HorariosProcesados}"
-                                            TextColor="Black">
+                                        Grid.Row="2"
+                                        FontSize="Medium" 
+                                        Text="{Binding HorariosProcesados}"
+                                        TextColor="Black">
                                     </Label>
 
                                     
