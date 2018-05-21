@@ -8,9 +8,9 @@
              Title="Mónico">
     <ContentPage.Content>
         <ScrollView
-            BindingContext="{Binding Alumno}">
+             BindingContext="{Binding Alumno}">
         <StackLayout
-            BackgroundColor="#4f6e88">
+           BackgroundColor="#4f6e88">
             <StackLayout
                Padding="5"
                BackgroundColor="#4f6e88">
@@ -20,27 +20,25 @@
                    WidthRequest="125">
 
                 </Image>
-                
-                <Label             
+
+
+                    <Label             
                     FontAttributes="Bold"
                     FontSize="Medium"
                     Text="{i18n:Translate welcome}"
                     TextColor="#e2f1fb">
 
                 </Label>
-                <ActivityIndicator
-                    Color="#9ebad2"
-                    IsRunning="{Binding IsRunning, Mode=TwoWay}"
-                    VerticalOptions="CenterAndExpand">
-
-                </ActivityIndicator>
+               
                 
                 <ListView 
                 BackgroundColor="#4f6e88"
                 HasUnevenRows ="True"
                 ItemsSource="{Binding LoggedUser}"
                 SeparatorVisibility="None"
-                VerticalOptions="StartAndExpand">
+                VerticalOptions="CenterAndExpand"
+                    WidthRequest="100"
+                    HeightRequest="100">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -87,10 +85,18 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-                <StackLayout 
+
+                    <ActivityIndicator
+                    Color="#9ebad2"
+                    IsRunning="{Binding IsRunning, Mode=TwoWay}"
+                    VerticalOptions="CenterAndExpand">
+
+                    </ActivityIndicator>
+                
+                    <StackLayout 
                     BackgroundColor="#4f6e88"
                     VerticalOptions="EndAndExpand"
-                    Padding="10,5,5,20">
+                    Padding="10,20,5,5">
 
                     <Label
                         Grid.Row="0"
@@ -130,14 +136,14 @@
 
                     </Button>
                 </StackLayout>
-
+              
 
             </StackLayout>
         </StackLayout>
         </ScrollView>
-        
-        
-           
-   
+
+
+
+
     </ContentPage.Content>
 </ContentPage>
