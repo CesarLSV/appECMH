@@ -11,7 +11,7 @@
             BindingContext="{Binding Login}">
             <StackLayout
             Padding="10,10,10,5"
-                BackgroundColor="#065190">
+                BackgroundColor="#4f6e88">
                 <!--<Label
                 FontAttributes="Bold"
                 FontSize="Large"
@@ -83,6 +83,7 @@
                         Text="{i18n:Translate rememberme}"
                         VerticalOptions="Center"/>
                     <Switch
+                        
                         IsToggled="{Binding IsRemembered, Mode=TwoWay}"
                         HorizontalOptions="End">
                     </Switch>
@@ -97,7 +98,7 @@
                         Command="{Binding LoginCommand}"
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="{i18n:Translate enter}"
-                         TextColor="#e2f1fb" >
+                        TextColor="#e2f1fb" >
 
                     </Button>
 
@@ -114,6 +115,7 @@
 
                 </StackLayout>
                 <ActivityIndicator
+                    Color="#9ebad2"
                     IsRunning="{Binding IsRunning, Mode=TwoWay}"
                     VerticalOptions="CenterAndExpand">
 

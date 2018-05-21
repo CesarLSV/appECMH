@@ -7,7 +7,9 @@
              Title="Biblioteca">
     <ContentPage.Content>
         <StackLayout
-            BindingContext="{Binding Biblioteca}">
+            BackgroundColor="#4f6e88"
+            BindingContext="{Binding Biblioteca}"
+            >
             <WebView Source="https://biblioteca.monicaherrera.edu.sv/library/index.php?title=Especial:GSMSearchPage"
                         HeightRequest="1000"
                         WidthRequest="1000" />

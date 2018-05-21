@@ -7,6 +7,7 @@
              Title="Mis Horarios">
     <ContentPage.Content>
         <StackLayout
+            BackgroundColor="#4f6e88"
              BindingContext="{Binding Horarios}">
             <SearchBar
                 HeightRequest="46"
@@ -17,7 +18,7 @@
             </SearchBar>
             
             <ListView 
-                BackgroundColor="#0567af"
+                BackgroundColor="#4f6e88"
                 HasUnevenRows="true" 
                 IsPullToRefreshEnabled="true"
                 IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
@@ -35,9 +36,18 @@
                                 <Grid>
                                     <Grid.ColumnDefinitions>
 
-                                        <ColumnDefinition Width="2*"/>
-                                        <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                   
+
                                     </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+
+                                    </Grid.RowDefinitions>
 
 
                                     <Label 
@@ -48,39 +58,22 @@
                                             TextColor="Black">
                                     </Label>
 
+                                   
                                     <Label 
                                             Grid.Row="1"
-                                            Grid.Column="0"
-                                            FontSize="Medium" 
-                                            Text="Sección "
-                                            TextColor="Black">
-                                    </Label>
-
-
-                                    <Label 
-                                            Grid.Row="1"
-                                            Grid.Column="1"
                                             FontAttributes="Bold"
                                             FontSize="Medium" 
-                                            Text="{Binding Section}"
+                                            Text="{Binding Section2}"
                                             TextColor="Black">
+                                       
                                     </Label>
 
+                                                                        
                                     <Label 
-                                            Grid.Row="1"
-                                            Grid.Column="0"
-                                            FontSize="Medium" 
-                                            Text="Sección "
-                                            TextColor="Black">
-                                    </Label>
-
-                                    
-                                    <Label 
-                                            Grid.Row="1"
-                                            Grid.Column="1"
+                                            Grid.Row="2"
                                             FontAttributes="Bold"
                                             FontSize="Medium" 
-                                            Text="{Binding Section}"
+                                            Text="{Binding HorariosProcesados}"
                                             TextColor="Black">
                                     </Label>
 

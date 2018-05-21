@@ -215,4 +215,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\ic_keyboard_arrow_right.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\top_2_1.png" />
+  </ItemGroup>
 </Project>

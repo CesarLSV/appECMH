@@ -9,7 +9,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout
-                BackgroundColor="#065190"
+                BackgroundColor="#4f6e88"
                 BindingContext="{Binding DetalleMateria}"
                 Padding="5">
                 

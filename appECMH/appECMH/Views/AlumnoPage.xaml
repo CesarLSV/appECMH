@@ -9,11 +9,11 @@
     <ContentPage.Content>
 
         <StackLayout
-            BackgroundColor="#0567af"
+            BackgroundColor="#4f6e88"
             BindingContext="{Binding Alumno}">
             <StackLayout
                Padding="5"
-               BackgroundColor="#0567af">
+               BackgroundColor="#4f6e88">
 
                 <Image
                    Source="top_2.png"
@@ -29,13 +29,14 @@
 
                 </Label>
                 <ActivityIndicator
+                    Color="#9ebad2"
                     IsRunning="{Binding IsRunning, Mode=TwoWay}"
                     VerticalOptions="CenterAndExpand">
 
                 </ActivityIndicator>
                 
                 <ListView 
-                BackgroundColor="#0567af"
+                BackgroundColor="#4f6e88"
                 HasUnevenRows ="True"
                 ItemsSource="{Binding LoggedUser}"
                 SeparatorVisibility="None"
@@ -44,7 +45,7 @@
                     <DataTemplate>
                         <ViewCell>
                             <Frame
-                               BackgroundColor="#0567af"
+                               BackgroundColor="#4f6e88"
                                 CornerRadius="5"
                                 HasShadow="True"
                                 Margin="5">
@@ -87,7 +88,7 @@
                 </ListView.ItemTemplate>
             </ListView>
                 <StackLayout 
-                     BackgroundColor="#0567af"
+                     BackgroundColor="#4f6e88"
                      VerticalOptions="EndAndExpand">
 
                     <Label
