@@ -35,6 +35,28 @@
             set;
         }
 
+
+        public HorariosViewModel Horarios
+        {
+            get;
+            set;
+        }
+
+        #endregion
+
+
+        #region Properties
+        public TokenResponse Token
+        {
+            get;
+            set;
+        }
+
+        public TokenResponse UserLog
+        {
+            get;
+            set;
+        }
         #endregion
 
 

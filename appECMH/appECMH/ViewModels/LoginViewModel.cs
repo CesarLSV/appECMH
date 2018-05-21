@@ -7,6 +7,8 @@ namespace appECMH.ViewModels
     using System.Windows.Input;
     using Xamarin.Forms;
     using Views;
+    using Services;
+    using Helpers;
 
     //class LoginViewModel: INotifyPropertyChanged
     class LoginViewModel : BaseViewModel
@@ -14,9 +16,15 @@ namespace appECMH.ViewModels
     {
 
 
-       // #region Events
-       // public event PropertyChangedEventHandler PropertyChanged;
-       // #endregion
+        // #region Events
+        // public event PropertyChangedEventHandler PropertyChanged;
+        // #endregion
+
+
+        #region Services
+        private ApiService apiService;
+
+        #endregion
 
         #region Attributes
         private string clave;
@@ -81,12 +89,18 @@ namespace appECMH.ViewModels
         #region Constructors
         public LoginViewModel()
         {
+            this.apiService = new ApiService();
             this.IsRemembered = true;
-            this.Usuario = "adriana.diaz";
-            this.Clave = "Qumu0378";
             this.IsEnabled = true;
+           // this.IsRunning = true;
+            
+             this.Usuario = "adriana.diaz";
+            this.Clave = "Qumu0378";
+            
 
         }
+
+
         #endregion
 
 
@@ -102,35 +116,35 @@ namespace appECMH.ViewModels
 
         }
 
-        
+         
 
         private async void Login()
         {
             if (string.IsNullOrEmpty(this.Usuario))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "Necesitas ingresar un usuario.",
-                    "Accept");
+                   Languages.Error,
+                    Languages.uservalidator,
+                    Languages.Accept);
                 return;
 
             }
 
-            this.isRunning = true;
-            this.isEnabled = false;
+            //this.isRunning = true;
+            //this.isEnabled = false;
 
 
             if (string.IsNullOrEmpty(this.Clave))
             {
                 await Application.Current.MainPage.DisplayAlert(
-                    "Error",
-                    "Necesitas ingresar una clave.",
-                    "Accept");
+                    Languages.Error,
+                    Languages.passwordvalidator,
+                    Languages.Accept);
                 return;
 
             }
 
-
+            /*
             if (this.Usuario != "adriana.diaz" || this.Clave != "Qumu0378")
             {
                 this.isRunning = false;
@@ -142,10 +156,23 @@ namespace appECMH.ViewModels
                 this.Clave = string.Empty;
                 return;
             }
+            */
 
-            this.isRunning = false;
-            this.isEnabled = true;
 
+            this.IsRunning = true;
+            this.IsEnabled = false;
+
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                   Languages.Error,
+                   connection.Message,
+                   Languages.Accept);
+                return;
+            }
 
             //await Application.Current.MainPage.DisplayAlert(
             //        "OK",
@@ -153,12 +180,50 @@ namespace appECMH.ViewModels
             //        "Accept");
             //return;s
 
-            this.Usuario = string.Empty;
-            this.Clave = string.Empty;
 
+            var token = await this.apiService.GetToken("https://sigecmh.monicaherrera.edu.sv/apiECMH/",
+                                                       this.usuario,
+                                                       this.clave);
+
+            if (token == null)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                   "Error",
+                   "An error occurred when validating credentials, try again",
+                   "Accept");
+                return;
+            }
+
+
+            if (string.IsNullOrEmpty(token.AccessToken))
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                   "Error",
+                   token.ErrorDescription,
+                   "Accept");
+                this.Clave = string.Empty;
+                return;
+            }
+
+
+            MainViewModel.GetInstance().Token = token;
             MainViewModel.GetInstance().Alumno = new AlumnoViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new AlumnoPage());
 
+            //this.IsRunning = true;
+            //this.IsEnabled = false;
+
+
+
+            this.Usuario = string.Empty;
+            this.Clave = string.Empty;
+
+            this.IsRunning = false;
+            this.IsEnabled = true;
 
         }
 

@@ -117,6 +117,68 @@
             }
         }
 
+
+        //ByCesarL
+
+        public async Task<Response> Get<T>(
+        string urlBase,
+        string servicePrefix,
+        string controller,
+        string tokenType,
+        string accessToken)
+        {
+            try
+            {
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue(tokenType, accessToken);
+                client.BaseAddress = new Uri(urlBase);
+                var url = string.Format(
+                    "{0}{1}",
+                    servicePrefix,
+                    controller);
+                var response = await client.GetAsync(url);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = response.StatusCode.ToString(),
+                    };
+                }
+
+                var result = await response.Content.ReadAsStringAsync();
+
+                string s = result.Replace(@"\", string.Empty);
+
+                // after this   string is 
+                //  "[{"UName":"sravi","LastName":"last","FirstName":"firest"}]"
+
+                string final = s.Trim().Substring(1, (s.Length) - 2);
+
+
+               // var model = JsonConvert.DeserializeObject<T>(final);
+                return new Response
+                {
+                    IsSuccess = true,
+                    Message = "Ok",
+                    //Result = model,
+                    Result = final,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
+
+        //END By CesarL
+
         public async Task<Response> GetList<T>(
             string urlBase,
             string servicePrefix,
@@ -182,6 +244,15 @@
                 var response = await client.GetAsync(url);
                 var result = await response.Content.ReadAsStringAsync();
 
+                //CesarL
+                string s = result.Replace(@"\", string.Empty);
+
+                // after this   string is 
+                //  "[{"UName":"sravi","LastName":"last","FirstName":"firest"}]"
+
+                string final = s.Trim().Substring(1, (s.Length) - 2);
+
+
                 if (!response.IsSuccessStatusCode)
                 {
                     return new Response
@@ -191,7 +262,7 @@
                     };
                 }
 
-                var list = JsonConvert.DeserializeObject<List<T>>(result);
+                var list = JsonConvert.DeserializeObject<List<T>>(final);
                 return new Response
                 {
                     IsSuccess = true,

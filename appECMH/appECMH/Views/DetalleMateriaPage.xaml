@@ -12,6 +12,7 @@
                 BackgroundColor="#065190"
                 BindingContext="{Binding DetalleMateria}"
                 Padding="5">
+                
                 <Label
                    FontSize="Large"
                     FontAttributes="Bold"
@@ -32,8 +33,8 @@
                         TextColor="#e2f1fb">
                     </Label>
                     <Label
-                        Grid.Column="0"
-                        Grid.Row="1"
+                        Grid.Row="0"
+                        Grid.Column="1"
                         FontAttributes="Bold"
                         Text="{Binding NotasLista.Section}"
                         TextColor="#e2f1fb">
