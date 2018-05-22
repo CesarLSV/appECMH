@@ -88,7 +88,8 @@ namespace appECMH.ViewModels
                     "Error",
                     conection.Message,
                     "Accept");
-                await Application.Current.MainPage.Navigation.PopAsync();
+                /*await Application.Current.MainPage.Navigation.PopAsync();*/
+                await App.Navigator.PopAsync();
                 return;
             }
 
@@ -97,7 +98,7 @@ namespace appECMH.ViewModels
                 "api/data",
                 "/authenticate",
                 "bearer",
-                MainViewModel.GetInstance().Token.AccessToken);
+                MainViewModel.GetInstance().Token);
 
             if (!response.IsSuccess)
             {
@@ -108,7 +109,9 @@ namespace appECMH.ViewModels
                     "Error",
                     response.Message,
                     "Accept");
-                await Application.Current.MainPage.Navigation.PopAsync();
+                /*await Application.Current.MainPage.Navigation.PopAsync();*/
+                await App.Navigator.PopAsync();
+
                 return;
             }
 
@@ -140,7 +143,11 @@ namespace appECMH.ViewModels
         {
 
             MainViewModel.GetInstance().Notas = new NotasViewModel();
+           await App.Navigator.PushAsync(new NotasPage());
+            /*
+            MainViewModel.GetInstance().Notas = new NotasViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new NotasPage());
+            */
 
 
         }
@@ -160,7 +167,11 @@ namespace appECMH.ViewModels
         private async void Biblioteca()
         {
             MainViewModel.GetInstance().Biblioteca = new BibliotecaViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new BibliotecaPage());
+            await App.Navigator.PushAsync(new BibliotecaPage());
+
+            /* MainViewModel.GetInstance().Biblioteca = new BibliotecaViewModel();
+             await Application.Current.MainPage.Navigation.PushAsync(new BibliotecaPage());
+             */
         }
 
 
@@ -178,8 +189,14 @@ namespace appECMH.ViewModels
 
         private async void Horarios()
         {
+
+            MainViewModel.GetInstance().Horarios = new HorariosViewModel();
+            await App.Navigator.PushAsync(new HorariosPage());
+
+            /*
             MainViewModel.GetInstance().Horarios = new HorariosViewModel();
             await Application.Current.MainPage.Navigation.PushAsync(new HorariosPage());
+            */
         }
 
         #endregion

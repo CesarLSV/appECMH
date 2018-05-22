@@ -49,11 +49,18 @@
 
 
         #region Properties
-        public TokenResponse Token
+
+        /*public TokenResponse Token
         {
             get;
             set;
         }
+        */
+
+        public string Token { get; set; }
+
+        public string TokenType { get; set; }
+
 
         public TokenResponse UserLog
         {

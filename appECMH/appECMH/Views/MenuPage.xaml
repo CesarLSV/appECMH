@@ -4,6 +4,7 @@
              x:Class="appECMH.Views.MenuPage"
              BindingContext="{Binding Main, Source={StaticResource Locator}}"
              BackgroundColor="#ec2629"
+             Icon="ic_menu"
              Title="Menú">
     <ContentPage.Content>
         <StackLayout

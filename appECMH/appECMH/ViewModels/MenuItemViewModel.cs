@@ -1,6 +1,7 @@
 ﻿
 namespace appECMH.ViewModels
 {
+    using appECMH.Helpers;
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
     using Views;
@@ -30,9 +31,31 @@ namespace appECMH.ViewModels
         {
            if (this.PageName == "LoginPage")
             {
-                Application.Current.MainPage = new LoginPage();
+
+                Settings.Token = string.Empty;
+                Settings.TokenType = string.Empty;
+
+                MainViewModel.GetInstance().Token = string.Empty;
+                MainViewModel.GetInstance().Token = string.Empty;
+
+                /* Application.Current.MainPage = new LoginPage();*/
+                 Application.Current.MainPage = new NavigationPage(new LoginPage());
+
             }
+
+
+            if (this.PageName == "NotasPage")
+            {
+
+               /* Application.Current.MainPage = new LoginPage();*/
+               Application.Current.MainPage = new NavigationPage(new NotasPage());
+
+            }
+
+
+
         }
         #endregion
     }
 }
+

@@ -210,7 +210,19 @@ namespace appECMH.ViewModels
             }
 
 
-            MainViewModel.GetInstance().Token = token;
+
+            //MainViewModel.GetInstance().Token = token;
+            MainViewModel.GetInstance().Token = token.AccessToken;
+            MainViewModel.GetInstance().TokenType = token.TokenType;
+
+           if (this.IsRemembered == true)
+            {
+                Settings.Token = token.AccessToken;
+                Settings.TokenType = token.AccessToken;
+            }
+
+           
+
             MainViewModel.GetInstance().Alumno = new AlumnoViewModel();
             // await Application.Current.MainPage.Navigation.PushAsync(new AlumnoPage());
             Application.Current.MainPage = new MasterPage();

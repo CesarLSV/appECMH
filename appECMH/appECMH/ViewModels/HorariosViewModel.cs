@@ -94,7 +94,8 @@
                     "Error",
                     conection.Message,
                     "Accept");
-                await Application.Current.MainPage.Navigation.PopAsync();
+                /* await Application.Current.MainPage.Navigation.PopAsync();*/
+                await App.Navigator.PopAsync();
                 return;
             }
 
@@ -103,7 +104,7 @@
                 "api/data",
                 "/horarios",
                 "bearer",
-                MainViewModel.GetInstance().Token.AccessToken);
+                MainViewModel.GetInstance().Token);
 
             if (!response.IsSuccess)
             {
@@ -114,7 +115,8 @@
                     "Error",
                     response.Message,
                     "Accept");
-                await Application.Current.MainPage.Navigation.PopAsync();
+                /* await Application.Current.MainPage.Navigation.PopAsync();*/
+                await App.Navigator.PopAsync();
                 return;
             }
 

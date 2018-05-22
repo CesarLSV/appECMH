@@ -6,6 +6,8 @@ namespace appECMH
 {
     using Views;
     using Xamarin.Forms;
+    using Helpers;
+    using ViewModels;
 
     public partial class App : Application
 	{
@@ -27,7 +29,25 @@ namespace appECMH
 			InitializeComponent();
 
            // MainPage = new MasterPage();
-            MainPage = new NavigationPage(new LoginPage());
+           // MainPage = new NavigationPage(new LoginPage());
+           if (string.IsNullOrEmpty(Settings.Token))
+
+            {
+                this.MainPage = new NavigationPage(new LoginPage());
+            }
+            else
+            {
+                var mainViewModel = MainViewModel.GetInstance();
+
+                mainViewModel.Token = Settings.Token;
+                mainViewModel.TokenType = Settings.TokenType;
+
+                MainViewModel.GetInstance().Alumno = new AlumnoViewModel();
+                this.MainPage = new MasterPage();
+
+            }
+
+
         }
 
         #endregion
