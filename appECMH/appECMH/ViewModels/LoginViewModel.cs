@@ -212,7 +212,8 @@ namespace appECMH.ViewModels
 
             MainViewModel.GetInstance().Token = token;
             MainViewModel.GetInstance().Alumno = new AlumnoViewModel();
-            await Application.Current.MainPage.Navigation.PushAsync(new AlumnoPage());
+            // await Application.Current.MainPage.Navigation.PushAsync(new AlumnoPage());
+            Application.Current.MainPage = new MasterPage();
 
             //this.IsRunning = true;
             //this.IsEnabled = false;

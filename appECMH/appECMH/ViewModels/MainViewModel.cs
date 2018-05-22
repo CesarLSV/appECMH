@@ -1,6 +1,9 @@
 ﻿namespace appECMH.ViewModels
 {
     using Models;
+    using System;
+    using System.Collections.ObjectModel;
+    using Helpers;
 
     class MainViewModel
     {
@@ -57,6 +60,12 @@
             get;
             set;
         }
+
+        public ObservableCollection<MenuItemViewModel> Menus
+        {
+            get;
+            set;
+        }
         #endregion
 
 
@@ -66,7 +75,10 @@
         {
             instance = this;
             this.Login = new LoginViewModel();
+            this.LoadMenu();
         }
+
+       
 
 
         #endregion
@@ -87,5 +99,43 @@
 
         #endregion
 
+
+        #region Methods
+        private void LoadMenu()
+        {
+            this.Menus = new ObservableCollection<MenuItemViewModel>();
+            this.Menus.Add(new MenuItemViewModel
+            {
+                Icon = "ic_playlist_add_check",
+                PageName = "NotasPage",
+                Title = Languages.myqualifications
+            });
+
+            this.Menus.Add(new MenuItemViewModel
+            {
+                Icon = "ic_schedule",
+                PageName = "HorariosPage",
+                Title = Languages.myschedules
+            });
+
+
+            this.Menus.Add(new MenuItemViewModel
+            {
+                Icon = "ic_local_library",
+                PageName = "BibliotecaPage",
+                Title = Languages.library
+            });
+
+            this.Menus.Add(new MenuItemViewModel
+            {
+                Icon = "ic_exit_to_app",
+                PageName = "LoginPage",
+                Title = Languages.exit
+            });
+
+
+        }
+
+        #endregion
     }
 }

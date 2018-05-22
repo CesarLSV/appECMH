@@ -159,4 +159,16 @@
   <data name="availableoptions" xml:space="preserve">
     <value>Opciones disponibles</value>
   </data>
+  <data name="library" xml:space="preserve">
+    <value>Biblioteca</value>
+  </data>
+  <data name="myqualifications" xml:space="preserve">
+    <value>Mis calificaciones</value>
+  </data>
+  <data name="myschedules" xml:space="preserve">
+    <value>Mis horarios</value>
+  </data>
+  <data name="exit" xml:space="preserve">
+    <value>Salir</value>
+  </data>
 </root>

@@ -159,4 +159,16 @@
   <data name="availableoptions" xml:space="preserve">
     <value>Available options</value>
   </data>
+  <data name="library" xml:space="preserve">
+    <value>Library</value>
+  </data>
+  <data name="myqualifications" xml:space="preserve">
+    <value>My qualifications</value>
+  </data>
+  <data name="myschedules" xml:space="preserve">
+    <value>My schedules</value>
+  </data>
+  <data name="exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
 </root>

@@ -115,6 +115,42 @@ namespace appECMH.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit.
+        /// </summary>
+        public static string exit {
+            get {
+                return ResourceManager.GetString("exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Library.
+        /// </summary>
+        public static string library {
+            get {
+                return ResourceManager.GetString("library", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My qualifications.
+        /// </summary>
+        public static string myqualifications {
+            get {
+                return ResourceManager.GetString("myqualifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to My schedules.
+        /// </summary>
+        public static string myschedules {
+            get {
+                return ResourceManager.GetString("myschedules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to password.
         /// </summary>
         public static string password {

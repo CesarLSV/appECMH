@@ -29,9 +29,9 @@
                     TextColor="#e2f1fb">
 
                 </Label>
-               
-                
-                <ListView 
+                    
+                    
+                    <ListView 
                 BackgroundColor="#4f6e88"
                 HasUnevenRows ="True"
                 ItemsSource="{Binding LoggedUser}"
@@ -113,7 +113,7 @@
                         Command="{Binding NotasCommand}"
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         TextColor="White"
-                        Text="Mis Notas">
+                        Text="{i18n:Translate myqualifications}">
 
                     </Button>
 
@@ -122,7 +122,7 @@
                         Command="{Binding HorariosCommand}"
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         TextColor="White"
-                        Text="Mis Horarios">
+                        Text="{i18n:Translate myschedules}">
 
                     </Button>
 
@@ -132,7 +132,7 @@
                         Command="{Binding BibliotecaCommand}"
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         TextColor="White"
-                        Text="Biblioteca">
+                        Text="{i18n:Translate library}">
 
                     </Button>
                 </StackLayout>

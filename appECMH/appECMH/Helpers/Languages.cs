@@ -71,7 +71,24 @@
         {
             get { return Resource.enter; }
         }
-       
+
+        public static string myqualifications
+        {
+            get { return Resource.myqualifications; }
+        }
+        public static string myschedules
+        {
+            get { return Resource.myschedules; }
+        }
+        public static string library
+        {
+            get { return Resource.library; }
+        }
+        public static string exit
+        {
+            get { return Resource.exit; }
+        }
+
 
 
     }
