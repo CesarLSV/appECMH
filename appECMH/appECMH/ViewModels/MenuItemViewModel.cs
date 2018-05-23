@@ -29,6 +29,8 @@ namespace appECMH.ViewModels
 
         private void Navigate()
         {
+            App.Master.IsPresented = false;
+
            if (this.PageName == "LoginPage")
             {
 
@@ -47,10 +49,38 @@ namespace appECMH.ViewModels
             if (this.PageName == "NotasPage")
             {
 
-               /* Application.Current.MainPage = new LoginPage();*/
-               Application.Current.MainPage = new NavigationPage(new NotasPage());
+                /* Application.Current.MainPage = new LoginPage();*/
+                MainViewModel.GetInstance().Notas = new NotasViewModel();
+                App.Navigator.PushAsync(new NotasPage());
+               
+                //await App.Navigator.PushAsync(new NotasPage());
 
             }
+
+            if (this.PageName == "HorariosPage")
+            {
+
+                /* Application.Current.MainPage = new LoginPage();*/
+                MainViewModel.GetInstance().Horarios = new HorariosViewModel();
+                App.Navigator.PushAsync(new HorariosPage());
+
+                //await App.Navigator.PushAsync(new NotasPage());
+
+            }
+
+
+            if (this.PageName == "BibliotecaPage")
+            {
+
+                /* Application.Current.MainPage = new LoginPage();*/
+                MainViewModel.GetInstance().Biblioteca = new BibliotecaViewModel();
+                App.Navigator.PushAsync(new BibliotecaPage());
+
+                //await App.Navigator.PushAsync(new NotasPage());
+
+            }
+
+
 
 
 

@@ -13,7 +13,7 @@ using Android.Widget;
 namespace appECMH.Droid
 {
     [Activity(Label = "ECMH",
-        Icon = "@drawable/solo_logo_monica",
+        Icon = "@drawable/ic_launcher",
         Theme = "@style/Theme.Splash",
         MainLauncher = true,
         NoHistory =true)]
@@ -23,6 +23,7 @@ namespace appECMH.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+            System.Threading.Thread.Sleep(1800);
 
 
             // Create your application here

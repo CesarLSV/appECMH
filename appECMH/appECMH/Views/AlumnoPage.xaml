@@ -93,7 +93,7 @@
 
                     </ActivityIndicator>
                 
-                    <StackLayout 
+                    <!--<StackLayout 
                     BackgroundColor="#4f6e88"
                     VerticalOptions="EndAndExpand"
                     Padding="10,20,5,5">
@@ -135,7 +135,7 @@
                         Text="{i18n:Translate library}">
 
                     </Button>
-                </StackLayout>
+                </StackLayout>-->
               
 
             </StackLayout>

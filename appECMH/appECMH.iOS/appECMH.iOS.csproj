@@ -222,9 +222,6 @@
     <BundleResource Include="Resources\top_2_1.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ic_exit_to_app.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\ic_local_library.png" />
   </ItemGroup>
   <ItemGroup>
@@ -232,6 +229,9 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_exit_to_app.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\ic_menu.png" />

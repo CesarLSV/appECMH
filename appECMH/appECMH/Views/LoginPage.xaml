@@ -18,7 +18,7 @@
                 HorizontalOptions="Center"
                 Text="Ingreso de alumnos">
                 
-            </Label>-->
+                </Label>-->
                 <Image
                 Source="top_2.png"
                 WidthRequest="200">
@@ -42,12 +42,12 @@
                     </Label>
 
                     <Entry
-                        BackgroundColor="White"
                         Grid.Row="0"
                         Grid.Column="1"
                         Keyboard="Email"
                         Placeholder="{i18n:Translate useryouplaceholder}"
-                        Text="{Binding Usuario, Mode=TwoWay}">
+                        Text="{Binding Usuario, Mode=TwoWay}"
+                        TextColor="DarkGray">
                     </Entry>
 
                     <Label
@@ -59,12 +59,12 @@
                     </Label>
 
                     <Entry
-                        BackgroundColor="White"
                         Grid.Row="1"
                         Grid.Column="1"
                         IsPassword="True"
                         Placeholder="{i18n:Translate passwordplaceholder}"
                         Text="{Binding Clave, Mode=TwoWay}"
+                        TextColor="DarkGray"
                         IsEnabled="{Binding IsEnabled, Mode=TwoWay}">
                     </Entry>
 

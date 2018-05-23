@@ -64,7 +64,11 @@
         {
 
             MainViewModel.GetInstance().DetalleMateria = new DetalleMateriaViewModel(this);
-            await Application.Current.MainPage.Navigation.PushAsync(new DetalleMateriaPage());
+            await App.Navigator.PushAsync(new DetalleMateriaPage());
+
+            /* MainViewModel.GetInstance().DetalleMateria = new DetalleMateriaViewModel(this);
+             await Application.Current.MainPage.Navigation.PushAsync(new DetalleMateriaPage());
+             */
         }
 
         #endregion
